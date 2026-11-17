@@ -1,4 +1,4 @@
-// JANJI — main: the game loop, screens, story, and save.
+// PROMISE — main: the game loop, screens, story, and save.
 // Modes: title → card (zone story) → play ⇄ dead → levelClear → …
 // → ending (after level 12) → title. Progress (unlocked level, total
 // deaths, best clear time) lives in localStorage; the climb itself is
@@ -11,7 +11,7 @@ import { createRun, step, resetToCheckpoint } from './physics.js';
 import { render } from './render.js';
 import { applyShot } from './shots.js';
 
-const SAVE_KEY = 'janji-save-v1';
+const SAVE_KEY = 'promise-save-v1';
 const canvas = document.getElementById('game');
 const ctx = canvas.getContext('2d');
 canvas.width = VIEW_W;
@@ -221,7 +221,7 @@ function drawOverlay() {
     ctx.textAlign = 'center';
     ctx.fillStyle = '#f7c873';
     ctx.font = 'bold 84px Georgia, serif';
-    ctx.fillText('JANJI', VIEW_W / 2, 200);
+    ctx.fillText('PROMISE', VIEW_W / 2, 200);
     ctx.fillStyle = '#f5e9c8';
     ctx.font = 'italic 22px Georgia, serif';
     ctx.fillText('a promise before sunrise', VIEW_W / 2, 240);
@@ -373,7 +373,7 @@ function frame(now) {
 }
 
 // --- test + screenshot hooks (also the develop-web-game contract) ---
-window.__JANJI__ = {
+window.__PROMISE__ = {
   game, startLevel, startRun, LEVELS,
   setMode(m) { game.mode = m; },
   teleport(x, y) { game.run.px = x; game.run.py = y; game.run.vx = 0; game.run.vy = 0; },
@@ -398,5 +398,5 @@ window.render_game_to_text = () => JSON.stringify({
 
 startLevel(0);
 game.mode = 'title'; // the climb starts at the title screen, not the card
-applyShot(window.__JANJI__);
+applyShot(window.__PROMISE__);
 requestAnimationFrame(frame);

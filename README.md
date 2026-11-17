@@ -1,4 +1,4 @@
-# JANJI — a promise before sunrise
+# PROMISE — a promise before sunrise
 
 A 2D rage platformer about an old fisherman keeping a promise.
 

@@ -1,4 +1,4 @@
-// JANJI — levels: 12 short rage-platformer levels in 3 zones.
+// PROMISE — levels: 12 short rage-platformer levels in 3 zones.
 // Coordinates are pixels. Ground top is y=500; the canvas is 540 tall.
 // Jump envelope (from config.js): single jump rises ~108px and crosses
 // ~180px at full run; double jump rises ~190px and crosses ~300px.

@@ -1,4 +1,4 @@
-// JANJI — config: tuning, story text, and shared constants.
+// PROMISE — config: tuning, story text, and shared constants.
 // All values here are the single source of truth for physics, story,
 // and HUD text. Levels read the physics numbers; the dossier checker
 // in tools/ reads them too, so a tuning change stays consistent.
@@ -96,4 +96,4 @@ export const MEMORY_LINES = [
 
 export const ENDING_CARD =
   'The sun rises. The ashes scatter on the wind. Darma sits down beside the memory of her \u2014 and finally, peacefully, rests. The promise is kept.';
-export const ENDING_SUB = 'JANJI \u2014 a promise before sunrise';
+export const ENDING_SUB = 'PROMISE \u2014 a promise before sunrise';

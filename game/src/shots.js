@@ -1,4 +1,4 @@
-// JANJI — shots: deterministic scene setups for the entry screenshots.
+// PROMISE — shots: deterministic scene setups for the entry screenshots.
 // ?shot=start → title screen. ?shot=play → mid-climb in the dusk forest
 // (level 5, wind, deaths on the counter). ?shot=dead → Ratna's line on
 // the death screen. ?shot=end → the sunrise ending. No other effect:

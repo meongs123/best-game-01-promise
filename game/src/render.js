@@ -1,4 +1,4 @@
-// JANJI — render: everything is drawn in code, no image assets.
+// PROMISE — render: everything is drawn in code, no image assets.
 // Dawn palette per zone: deep indigo sky melting into gold at the
 // horizon, layered hill silhouettes for parallax, a low sun that climbs
 // higher with each zone. Darma is an old fisherman: straw hat, grey
@@ -275,7 +275,7 @@ export function render(ctx, game) {
   ctx.fillStyle = '#f5e9c8';
   ctx.font = 'bold 17px Georgia, serif';
   ctx.textAlign = 'left';
-  ctx.fillText(`JANJI  ·  ${levelIndex + 1}. ${game.levelName}`, 14, 28);
+  ctx.fillText(`PROMISE  ·  ${levelIndex + 1}. ${game.levelName}`, 14, 28);
   ctx.textAlign = 'right';
   ctx.font = '15px Georgia, serif';
   const mm = Math.floor(run.time / 60);

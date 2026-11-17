@@ -1,4 +1,4 @@
-// JANJI — headless playtest via Chrome DevTools Protocol (dev tool).
+// PROMISE — headless playtest via Chrome DevTools Protocol (dev tool).
 // Drives the real game in headless Chrome: title → card → play, run,
 // jump (measures apex), spike death → Ratna line → fast respawn,
 // goal → level clear → level 2. Captures console errors and screenshots.
@@ -37,7 +37,7 @@ async function key(type, code, keyName) {
 }
 async function shot(name) {
   const r = await send('Page.captureScreenshot', { format: 'png' });
-  writeFileSync(`/tmp/janji-test-${name}.png`, Buffer.from(r.result.data, 'base64'));
+  writeFileSync(`/tmp/promise-test-${name}.png`, Buffer.from(r.result.data, 'base64'));
 }
 const state = async () => JSON.parse(await evalJs('window.render_game_to_text()'));
 
@@ -80,7 +80,7 @@ s = await state();
 check('jump apex ~108px (single)', minY <= 466 - 80 && minY >= 466 - 130, `apex y=${minY} (ground 466)`);
 await shot('play');
 // double jump: jump from ground, then jump again mid-air
-await evalJs(`window.__JANJI__.teleport(200, 466)`);
+await evalJs(`window.__PROMISE__.teleport(200, 466)`);
 await sleep(200);
 await key('keyDown', 'Space', ' ');
 await sleep(250);
@@ -92,7 +92,7 @@ await key('keyUp', 'Space', ' ');
 check('double jump higher than single', minY2 < minY - 30, `double apex y=${minY2} vs single ${minY}`);
 // spike death: teleport onto the L1 spike strip at x=900; poll fast,
 // the respawn comes 350ms after the death screen appears
-await evalJs(`window.__JANJI__.teleport(905, 466)`);
+await evalJs(`window.__PROMISE__.teleport(905, 466)`);
 await sleep(150);
 s = await state();
 check('spike kills', s.mode === 'dead' && s.ratnaLine.length > 5, `${s.mode} "${s.ratnaLine}"`);
@@ -102,17 +102,17 @@ s = await state();
 check('respawn <0.5s after death overlay', s.mode === 'play', `${s.mode} deaths=${s.deaths}`);
 check('death counted', s.deaths >= 1, `deaths=${s.deaths}`);
 // firefly: teleport onto one
-await evalJs(`window.__JANJI__.teleport(690, 430)`);
+await evalJs(`window.__PROMISE__.teleport(690, 430)`);
 await sleep(400);
 s = await state();
 check('firefly collected', s.fireflies.startsWith('1/'), s.fireflies);
 // checkpoint: teleport onto it and confirm it catches
-await evalJs(`window.__JANJI__.teleport(1050, 466)`);
+await evalJs(`window.__PROMISE__.teleport(1050, 466)`);
 await sleep(300);
 s = await state();
 check('checkpoint catches', s.checkpoint === true, `checkpoint=${s.checkpoint}`);
 // goal: teleport to the shrine
-await evalJs(`window.__JANJI__.teleport(1900, 466)`);
+await evalJs(`window.__PROMISE__.teleport(1900, 466)`);
 await sleep(400);
 s = await state();
 check('goal -> level clear', s.mode === 'levelClear', s.mode);
@@ -123,12 +123,12 @@ s = await state();
 check('level 2 starts (same zone, no card)', s.mode === 'play' && s.level === 2, `${s.mode} level ${s.level}`);
 await shot('level2');
 // hidden trap fairness: level 4 hidden spike reveals after killing once
-await evalJs(`window.__JANJI__.startLevel(3, false); window.__JANJI__.game.mode='play'; window.__JANJI__.teleport(1655, 466)`);
+await evalJs(`window.__PROMISE__.startLevel(3, false); window.__PROMISE__.game.mode='play'; window.__PROMISE__.teleport(1655, 466)`);
 await sleep(150);
 s = await state();
 check('hidden spike kills first time', s.mode === 'dead', s.mode);
 await sleep(600);
-const revealed = await evalJs(`window.__JANJI__.game.run.revealed.size`);
+const revealed = await evalJs(`window.__PROMISE__.game.run.revealed.size`);
 check('hidden spike stays revealed after death', revealed === 1, `revealed=${revealed}`);
 
 console.log('---');

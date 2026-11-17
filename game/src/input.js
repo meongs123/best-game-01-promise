@@ -1,4 +1,4 @@
-// JANJI — input: keyboard state with edge detection.
+// PROMISE — input: keyboard state with edge detection.
 // Keys: A/D or Left/Right to move, Space/W/Up to jump (held for higher
 // jumps, released to cut), R to retry the level, M to mute, Enter to
 // confirm, Esc/P to pause. Touch: left/right halves move, tap jumps.

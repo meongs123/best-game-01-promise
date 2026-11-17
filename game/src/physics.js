@@ -1,4 +1,4 @@
-// JANJI — physics: the player controller and every hazard.
+// PROMISE — physics: the player controller and every hazard.
 // Pure movement math over level data (imports only config.js), so the
 // same step can be driven by the browser loop, the test hooks, and the
 // headless reachability checker. No DOM, no audio, no drawing here.

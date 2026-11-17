@@ -1,4 +1,4 @@
-// JANJI — audio: everything is synthesized with WebAudio, no files.
+// PROMISE — audio: everything is synthesized with WebAudio, no files.
 // A soft pentatonic pad drifts under the climb; jumps, deaths,
 // checkpoints, fireflies and the sunrise each get their own small sound.
 // Audio starts on the first user gesture (browser autoplay rule).

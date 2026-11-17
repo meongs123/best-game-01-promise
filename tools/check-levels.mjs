@@ -1,4 +1,4 @@
-// JANJI — level checker (dev tool, not part of the game).
+// PROMISE — level checker (dev tool, not part of the game).
 // Verifies every level is beatable with the real jump envelope:
 // BFS over platform tops, edges allowed when the gap and rise fit a
 // single jump (or a double jump where the level intends one), plus
