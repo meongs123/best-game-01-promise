@@ -1,0 +1,6 @@
+[
+  { "name": "01-cover.jpg", "query": "?shot=play&seed=1" },
+  { "name": "02-title.jpg", "query": "?shot=start&seed=1" },
+  { "name": "03-death.jpg", "query": "?shot=dead&seed=1" },
+  { "name": "04-ending.jpg", "query": "?shot=end&seed=1" }
+]
